@@ -2,15 +2,21 @@ package in.starx.hibernatetutorial.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 // annotation -> @
 @Entity
+@Table(name = "employee")
 public class Employee {
 
 	@Id
-	@Column
-	private int eid;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "eid")
+    private Long eid;
+
 	
 	@Column
 	private String ename;
@@ -31,10 +37,10 @@ public class Employee {
 	private String ecity;
 	
 	
-	public int getEid() {
+	public long getEid() {
 		return eid;
 	}
-	public void setEid(int eid) {
+	public void setEid(long eid) {
 		this.eid = eid;
 	}
 	public String getEname() {
